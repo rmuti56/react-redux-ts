@@ -1,27 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { start, selectDateStart } from "../../redux/recorder";
+import { start, selectDateStart, stop } from "../../redux/recorder";
 
 const Recorder = () => {
   const dispatch = useDispatch();
   const dateStart = useSelector(selectDateStart);
   const started = dateStart !== "";
   let interval = useRef<number>(0);
-  const [count, setCount] = useState<number>(0);
-
-  const handleClick = () => {
-    dispatch(start());
-    interval.current = window.setInterval(() => {
-      setCount((prevCount) => prevCount + 1);
-    }, 1000);
-  };
-
-  useEffect(() => {
-    return () => {
-      window.clearInterval(interval.current);
-    };
-  }, []);
-
+  const [, setCount] = useState<number>(0);
   let secounds = started
     ? Math.floor((Date.now() - new Date(dateStart).getTime()) / 1000)
     : 0;
@@ -29,6 +15,24 @@ const Recorder = () => {
   secounds -= hours * 60 * 60;
   const minutes = secounds ? Math.floor(secounds / 60) : 0;
   secounds -= minutes * 60;
+
+  const handleClick = () => {
+    if (secounds) {
+      window.clearInterval(interval.current);
+      dispatch(stop());
+    } else {
+      dispatch(start());
+      interval.current = window.setInterval(() => {
+        setCount((prevCount) => prevCount + 1);
+      }, 1000);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      window.clearInterval(interval.current);
+    };
+  }, []);
 
   return (
     <div>
