@@ -67,11 +67,12 @@ const Calendar: React.FC<Props> = ({ events, loadUserEvents }) => {
 
   return groupedEvents && sortedGroupKeys ? (
     <>
-      {sortedGroupKeys.map((day) => {
-        // const events = groupedEvents![day];
+      {sortedGroupKeys.map((dayKey) => {
+        const events = groupedEvents![dayKey];
+        console.log(events);
         return (
-          <div className="calendar" key={day}>
-            {day}
+          <div className="calendar" key={dayKey}>
+            {dayKey}
             {/* <span>1 February</span>
             <div>{events}</div> */}
           </div>
