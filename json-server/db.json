@@ -1,12 +1,6 @@
 {
   "events": [
     {
-      "id": 1,
-      "title": "Jogging",
-      "dateStart": "2020-05-06T10:26:20.230Z",
-      "dateEnd": "2020-05-06T11:26:20.230Z"
-    },
-    {
       "title": "Learning Typescript",
       "dateStart": "2020-05-06T12:26:20.230Z",
       "dateEnd": "2020-05-06T13:26:20.230Z",
@@ -26,12 +20,6 @@
     },
     {
       "title": "No name",
-      "dateStart": "2020-05-08T15:23:56.435Z",
-      "dateEnd": "2020-05-08T15:23:57.623Z",
-      "id": 5
-    },
-    {
-      "title": "No name",
       "dateStart": "2020-05-08T15:24:01.967Z",
       "dateEnd": "2020-05-08T15:24:07.185Z",
       "id": 6
@@ -47,12 +35,6 @@
       "dateStart": "2020-05-08T15:26:43.620Z",
       "dateEnd": "2020-05-08T15:26:46.692Z",
       "id": 8
-    },
-    {
-      "title": "No name",
-      "dateStart": "2020-05-08T15:28:01.281Z",
-      "dateEnd": "2020-05-08T15:28:07.046Z",
-      "id": 9
     },
     {
       "title": "No name",
