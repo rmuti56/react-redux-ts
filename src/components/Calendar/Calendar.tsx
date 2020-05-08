@@ -53,7 +53,8 @@ const groupEventsByDay = (events: UserEvent[]) => {
 const Calendar: React.FC<Props> = ({ events, loadUserEvents }) => {
   useEffect(() => {
     loadUserEvents();
-  }, [loadUserEvents]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   let groupedEvents: ReturnType<typeof groupEventsByDay> | undefined;
   let sortedGroupKeys: string[] | undefined;
@@ -69,12 +70,17 @@ const Calendar: React.FC<Props> = ({ events, loadUserEvents }) => {
     <>
       {sortedGroupKeys.map((dayKey) => {
         const events = groupedEvents![dayKey];
-        console.log(events);
+
         return (
           <div className="calendar" key={dayKey}>
             {dayKey}
             {/* <span>1 February</span>
             <div>{events}</div> */}
+            {events.map((event) => (
+              <div key={event.id}>
+                {event.dateStart} - {event.dateEnd}
+              </div>
+            ))}
           </div>
         );
       })}
