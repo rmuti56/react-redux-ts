@@ -10,6 +10,8 @@ import {
 import { addZero } from "../../helpers";
 import EventItem from "./EventItem";
 
+import "./Calendar.css";
+
 const mapState = (state: RootState) => ({
   events: selectUserEventsArray(state),
 });
